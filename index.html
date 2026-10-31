@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
     <title>Mis XV Años - Erick Jeancarlo</title>
     <!-- Tipografías elegantes y modernas -->
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -343,6 +344,34 @@
             box-shadow: 0 0 20px rgba(0, 210, 255, 0.5);
         }
 
+        /* Bloque de Fotos y Videos (Drive) */
+        .memories-card {
+            background: linear-gradient(135deg, rgba(13, 27, 53, 0.85), rgba(0, 102, 255, 0.2));
+            border: 1px solid rgba(0, 210, 255, 0.4);
+            margin-bottom: 40px;
+        }
+
+        .btn-memories {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, var(--blue-primary), var(--blue-glow));
+            color: #fff;
+            padding: 15px 32px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1rem;
+            margin-top: 20px;
+            box-shadow: 0 10px 25px rgba(0, 210, 255, 0.35);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .btn-memories:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 35px rgba(0, 210, 255, 0.6);
+        }
+
         /* Sección de Confirmación (RSVP) */
         .rsvp-card {
             background: linear-gradient(135deg, rgba(0, 102, 255, 0.25), rgba(13, 27, 53, 0.8));
@@ -460,7 +489,7 @@
                 <span class="card-time"><i class="fa-regular fa-clock"></i> 5:00 PM</span>
                 <p class="card-place">Capilla Santa Rita de Casia</p>
                 <p class="card-address">C. 80 entre 59 Los Almendros, Cd Caucel, 97314 Mérida, Yuc.</p>
-                <a href="https://maps.app.goo.gl/w8zVjSSJG6kYiCqF6?g_st=awb" target="_blank" class="btn-action">
+                <a href="https://maps.app.goo.gl/u6wNpMmffrdnDkts7" target="_blank" class="btn-action">
                     <i class="fa-solid fa-location-dot"></i> Ver Ubicación
                 </a>
             </div>
@@ -474,7 +503,7 @@
                 <span class="card-time"><i class="fa-regular fa-clock"></i> 6:30 PM</span>
                 <p class="card-place">Villa Catarina</p>
                 <p class="card-address">C. 29 29, Caucel, 97300 Caucel, Yuc.</p>
-                <a href="https://maps.app.goo.gl/w8zVjSSJG6kYiCqF6?g_st=awb" target="_blank" class="btn-action">
+                <a href="https://maps.app.goo.gl/No7SVDKZJENyH5YK8" target="_blank" class="btn-action">
                     <i class="fa-solid fa-location-dot"></i> Ver Ubicación
                 </a>
             </div>
@@ -503,6 +532,20 @@
             </div>
         </div>
 
+        <!-- Nuevo Bloque: Álbum Compartido de Fotos y Videos -->
+        <div class="card memories-card">
+            <div class="card-icon">
+                <i class="fa-solid fa-camera-retro"></i>
+            </div>
+            <h2 class="card-title">¡Comparte tus momentos favoritos de mi cumpleaños!</h2>
+            <p class="card-address" style="max-width: 550px; margin: 10px auto 0;">
+                Quiero guardar cada recuerdo de esta noche tan especial. Sube aquí las fotos y videos que captures durante la fiesta.
+            </p>
+            <a href="https://drive.google.com/drive/folders/" target="_blank" id="drive-album-link" class="btn-memories">
+                <i class="fa-solid fa-cloud-arrow-up" style="font-size: 1.2rem;"></i> Subir Imágenes y Videos
+            </a>
+        </div>
+
         <!-- Confirmación de Asistencia -->
         <div class="rsvp-card card">
             <div class="card-icon">
@@ -523,6 +566,11 @@
     </footer>
 
     <script>
+        // Configuración del enlace del álbum de Google Drive
+        const folderPart1 = "1BcigY3MruLKtr5Pm";
+        const folderPart2 = "2skB3R_i9WM6Ljbh";
+        document.getElementById("drive-album-link").href = "https://drive.google.com/drive/folders/" + folderPart1 + folderPart2;
+
         // 1. Abrir invitación con transición suave
         function openInvitation() {
             const overlay = document.getElementById('welcome-overlay');
